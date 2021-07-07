@@ -73,6 +73,22 @@ a {
   }
 }
 
+#last-section {
+  position: relative;
+  z-index: 100;
+}
+#bottom-footer {
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+  background: white;
+  z-index: 9;
+  text-align: center;
+  color: gray;
+  padding: 4px 0 4px 0;
+}
+
 /*::-webkit-scrollbar {
   display: none;
 }*/

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Section from "./Section";
 
 function Home() {
+  const year = new Date().getFullYear();
+
   return (
     <Container>
       <Section
@@ -47,13 +49,19 @@ function Home() {
         leftBtnText="Shop Now"
         rightBtnText="Learn More"
       />
-      <Section
-        title="Accessories"
-        description=""
-        backgroundImg="accessories.jpg"
-        leftBtnText="Shop Now"
-        rightBtnText=""
-      />
+      <div id="last-section">
+        <Section
+          title="Accessories"
+          description=""
+          backgroundImg="accessories.jpg"
+          leftBtnText="Shop Now"
+          rightBtnText=""
+        />
+        <div id="bottom-footer">
+          Demonstration only. Not Affiliated with Tesla. Copyright ⓒ Jason
+          Nembhard {year}
+        </div>
+      </div>
     </Container>
   );
 }
