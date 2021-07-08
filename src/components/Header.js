@@ -97,6 +97,7 @@ const RightMenu = styled.div`
     text-transform: uppercase;
     margin-right: 10px;
     flex-wrap: no-wrap;
+    color: #181b21;
   }
 `;
 
