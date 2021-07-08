@@ -87,6 +87,10 @@ const Footer = styled.div`
   padding: 4px 0 4px 0;
 `;
 
+const section = styled(Section)`
+  height: "auto";
+  width: "100%";
+`;
 const LastSection = styled.div`
   position: relative;
   z-index: 100;

@@ -73,6 +73,11 @@ a {
   }
 }
 
+#imageSize {
+  object-fit: cover;
+  object-position: bottom;
+}
+
 /*::-webkit-scrollbar {
   display: none;
 }*/
