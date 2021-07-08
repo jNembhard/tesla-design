@@ -9,19 +9,18 @@ function Header(props) {
   const [burgerStatus, setBurgerStatus] = useState(false);
   const cars = useSelector(selectCars);
 
+  const renderNav = (car) => (
+    <a key={props.index} href={`#${props.index}`}>
+      {car}
+    </a>
+  );
+
   return (
     <Container>
       <a href="...">
         <img src="/images/logo.svg" alt="" />
       </a>
-      <Menu>
-        {cars &&
-          cars.map((car, index) => (
-            <a key={index} href="...">
-              {car}
-            </a>
-          ))}
-      </Menu>
+      <Menu>{cars && cars.map(renderNav)}</Menu>
       <RightMenu>
         <a href="...">Shop</a>
         <a href="...">Account</a>
@@ -100,12 +99,6 @@ const RightMenu = styled.div`
     @media (max-width: 768px) {
       display: none;
     }
-  }
-`;
-
-const RightMenuWrapper = styled(RightMenu)`
-  @media (max-width: 768px) {
-    display: none;
   }
 `;
 

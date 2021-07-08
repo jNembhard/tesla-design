@@ -49,19 +49,14 @@ function Home() {
         leftBtnText="Shop Now"
         rightBtnText="Learn More"
       />
-      <LastSection>
-        <Section
-          title="Accessories"
-          description=""
-          backgroundImg="accessories.jpg"
-          leftBtnText="Shop Now"
-          rightBtnText=""
-        />
-        <Footer>
-          Demonstration only. Not Affiliated with Tesla. Copyright ⓒ Jason
-          Nembhard {year}
-        </Footer>
-      </LastSection>
+
+      <Section
+        title="Demonstration Only"
+        description={`No Affiliation with Tesla. Jason Nembhard ⓒ ${year}`}
+        backgroundImg="accessories.jpg"
+        leftBtnText="Shop Now"
+        rightBtnText=""
+      />
     </Container>
   );
 }
@@ -73,25 +68,4 @@ const Container = styled.div`
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
-`;
-
-const Footer = styled.div`
-  position: absolute;
-  bottom: 0px;
-  display: block;
-  width: 100%;
-  background: white;
-  z-index: 9;
-  text-align: center;
-  color: gray;
-  padding: 4px 0 4px 0;
-`;
-
-const section = styled(Section)`
-  height: "auto";
-  width: "100%";
-`;
-const LastSection = styled.div`
-  position: relative;
-  z-index: 100;
 `;

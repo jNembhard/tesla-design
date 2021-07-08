@@ -53,6 +53,7 @@ const ButtonGroup = styled.div`
   margin-bottom: 30px;
   @media (max-width: 768px) {
     flex-direction: column;
+    position: relative;
   }
 `;
 
@@ -70,6 +71,9 @@ const LeftButton = styled.div`
   font-size: 12px;
   cursor: pointer;
   margin: 8px;
+  @media (max-width: 768px){
+    width: 350px;
+  }
 `;
 
 const RightButton = styled(LeftButton)`
@@ -80,8 +84,15 @@ const RightButton = styled(LeftButton)`
 
 const DownArrow = styled.img`
   height: 40px;
+  margin-bottom: 50px;
   overflow-x: hidden;
   animation: animateDown 1.5s infinite;
+  position: relative;
+  @media (max-width: 768px) {
+    margin-bottom: 103px;
+    height: 50px;
+    overflow-y: hidden;
+  }
 `;
 
 const Buttons = styled.div``;
