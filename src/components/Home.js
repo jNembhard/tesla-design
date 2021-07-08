@@ -49,7 +49,7 @@ function Home() {
         leftBtnText="Shop Now"
         rightBtnText="Learn More"
       />
-      <div id="last-section">
+      <LastSection>
         <Section
           title="Accessories"
           description=""
@@ -57,11 +57,11 @@ function Home() {
           leftBtnText="Shop Now"
           rightBtnText=""
         />
-        <div id="bottom-footer">
+        <Footer>
           Demonstration only. Not Affiliated with Tesla. Copyright ⓒ Jason
           Nembhard {year}
-        </div>
-      </div>
+        </Footer>
+      </LastSection>
     </Container>
   );
 }
@@ -73,4 +73,21 @@ const Container = styled.div`
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   overflow-x: hidden;
+`;
+
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0px;
+  display: block;
+  width: 100%;
+  background: white;
+  z-index: 9;
+  text-align: center;
+  color: gray;
+  padding: 4px 0 4px 0;
+`;
+
+const LastSection = styled.div`
+  position: relative;
+  z-index: 100;
 `;
