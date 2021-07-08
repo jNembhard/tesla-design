@@ -85,7 +85,6 @@ const Menu = styled.div`
     padding: 0 10px;
     flex-wrap: no-wrap;
   }
-
   @media (max-width: 768px) {
     display: none;
   }
@@ -98,6 +97,15 @@ const RightMenu = styled.div`
     margin-right: 10px;
     flex-wrap: no-wrap;
     color: #181b21;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
+const RightMenuWrapper = styled(RightMenu)`
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
