@@ -46,7 +46,7 @@ function Home() {
         title="Solar Roof"
         description="Produce Clean Energy From Your Roof"
         backgroundImg="solar-roof.jpg"
-        leftBtnText="Shop Now"
+        leftBtnText="Order Now"
         rightBtnText="Learn More"
       />
 
