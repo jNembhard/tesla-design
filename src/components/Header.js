@@ -18,7 +18,7 @@ function Header(props) {
   return (
     <Container>
       <a href="...">
-        <img src="/images/logo.svg" alt="" />
+        <img src="/images/logo.svg" alt="Tesla" />
       </a>
       <Menu>{cars && cars.map(renderNav)}</Menu>
       <RightMenu>
