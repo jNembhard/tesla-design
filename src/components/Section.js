@@ -4,7 +4,7 @@ import Fade from "react-reveal/Fade";
 
 function Section(props) {
   return (
-    <Wrap bgImage={props.backgroundImg} id="imageSize">
+    <Wrap bgImage={props.backgroundImg} alt="Tesla Pics">
       <Fade bottom>
         <ItemText>
           <h1>{props.title}</h1>
@@ -31,16 +31,18 @@ export default Section;
 const Wrap = styled.div`
   min-width: 100vw;
   min-height: 100vh;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  ${"" /* background-image: url("/images/model-s.jpg"); */}
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
   background-image: ${(props) => `url("/images/${props.bgImage}")`};
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 `;
 
 const ItemText = styled.div`
@@ -94,9 +96,9 @@ const DownArrow = styled.img`
     overflow-y: hidden;
   }
   @media (max-width: 450px) {
-    margin-bottom: 103px;
     height: 50px;
-    overflow:-y: hidden;
+    margin-bottom: 102px;
+    overflow-y: hidden;
   }
 `;
 
