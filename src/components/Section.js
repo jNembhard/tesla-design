@@ -42,7 +42,7 @@ const Wrap = styled.div`
   align-items: center;
 
   background-image: ${(props) => `url("/images/${props.bgImage}")`};
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 `;
 
 const ItemText = styled.div`
@@ -67,6 +67,8 @@ const LeftButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+  letter-spacing: .5px;
   border-radius: 100px;
   opacity 0.85;
   text-transform: uppercase;

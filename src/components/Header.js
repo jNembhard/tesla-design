@@ -81,7 +81,6 @@ const Menu = styled.div`
 
   a {
     font-weight: 600;
-    text-transform: uppercase;
     padding: 0 10px;
     flex-wrap: nowrap;
   }
@@ -93,7 +92,6 @@ const Menu = styled.div`
 const RightMenu = styled.div`
   a {
     font-weight: 600;
-    text-transform: uppercase;
     margin-right: 10px;
     flex-wrap: nowrap;
     color: #181b21;
