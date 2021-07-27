@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
 import useScrollBlock from "./hooks/useScrollBlock";
@@ -13,8 +11,6 @@ function Header(props) {
   const [blockScroll, allowScroll] = useScrollBlock();
 
   const cars = useSelector(selectCars);
-
-  // const toggleBurger = () => setBurgerStatus(burgerStatus);
 
   const wrapperRef = useRef();
   useOnClickOutside(wrapperRef, () =>
@@ -50,10 +46,6 @@ function Header(props) {
         </RightMenu>
 
         <BurgerNav burgerStatus={burgerStatus}>
-          {/* <CloseWrapper>
-            <CustomClose onClick={() => setBurgerStatus(false)} />
-          </CloseWrapper> */}
-
           {burgerStatus &&
             cars.map((car, index) => (
               <li>
@@ -143,14 +135,4 @@ const BurgerNav = styled.div`
       font-weight: 600;
     }
   }
-`;
-
-const CustomClose = styled(CloseIcon)`
-  cursor: pointer;
-  text-align: right;
-`;
-
-const CloseWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
 `;
