@@ -8,7 +8,7 @@ The webpage was built with React Redux to handle state changes associated with e
 
 The webpage allows for snap scrolling on both mobile and desktop devices. Below is an example of the first section:
 
-![Tesla-Landing](/public/images/tesla-landing.gif)
+![Tesla-Landing](/public/images/tesla-landing.jpeg)
 
 ## Dependencies
 

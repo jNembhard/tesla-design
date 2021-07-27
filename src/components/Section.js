@@ -19,8 +19,8 @@ function Section(props) {
               <RightButton>{props.rightBtnText}</RightButton>
             )}
           </ButtonGroup>
+          {props.rightBtnText && <DownArrow src="images/down-arrow.svg" />}
         </Fade>
-        <DownArrow src="images/down-arrow.svg" />
       </Buttons>
     </Wrap>
   );
@@ -53,7 +53,7 @@ const ItemText = styled.div`
 const ButtonGroup = styled.div`
   display: flex;
   margin-bottom: 30px;
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     position: relative;
   }
@@ -68,14 +68,14 @@ const LeftButton = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 600;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   border-radius: 100px;
-  opacity 0.85;
+  opacity: 0.85;
   text-transform: uppercase;
   font-size: 12px;
   cursor: pointer;
   margin: 8px;
-  @media (max-width: 720px){
+  @media (max-width: 768px) {
     width: 90vw;
   }
 `;
@@ -88,19 +88,13 @@ const RightButton = styled(LeftButton)`
 
 const DownArrow = styled.img`
   height: 40px;
-  margin-bottom: 20px;
   overflow-x: hidden;
+  overflow-y: hidden;
   animation: animateDown 1.5s infinite;
   position: relative;
-  @media (max-width: 720px) {
-    margin-bottom: 2px;
-    height: 50px;
-    overflow-y: hidden;
-  }
   @media (max-width: 450px) {
     height: 50px;
     margin-bottom: 102px;
-    overflow-y: hidden;
   }
 `;
 

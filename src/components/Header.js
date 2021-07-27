@@ -1,61 +1,70 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import { selectCars } from "../features/car/carSlice";
 import { useSelector } from "react-redux";
+import useScrollBlock from "./hooks/useScrollBlock";
+import { useOnClickOutside } from "./hooks/useOnClickOutside";
+import { Twirl as Hamburger } from "hamburger-react";
 
 function Header(props) {
   const [burgerStatus, setBurgerStatus] = useState(false);
+  const [blockScroll, allowScroll] = useScrollBlock();
+
   const cars = useSelector(selectCars);
 
+  // const toggleBurger = () => setBurgerStatus(burgerStatus);
+
+  const wrapperRef = useRef();
+  useOnClickOutside(wrapperRef, () =>
+    setBurgerStatus(false) ? blockScroll() : allowScroll()
+  );
+
   return (
-    <Container>
-      <a href="...">
-        <img src="/images/logo.svg" alt="Tesla" />
-      </a>
-      <Menu>
-        {cars &&
-          cars.map((car, index) => (
-            <a key={index} href={`#${index}`}>
-              {car}
-            </a>
-          ))}
-      </Menu>
-      <RightMenu>
-        <a href="...">Shop</a>
-        <a href="...">Account</a>
-        <CustomMenu onClick={() => setBurgerStatus(true)} />
-      </RightMenu>
-      <BurgerNav show={burgerStatus}>
-        <CloseWrapper>
-          <CustomClose onClick={() => setBurgerStatus(false)} />
-        </CloseWrapper>
-        {cars &&
-          cars.map((car, index) => (
-            <li>
-              <a key={index} href="...">
+    <div ref={wrapperRef}>
+      <Container>
+        <a href="...">
+          <img src="/images/logo.svg" alt="Tesla" />
+        </a>
+        <Menu>
+          {cars &&
+            cars.map((car, index) => (
+              <a key={car.id} href={`#${index}`}>
                 {car}
               </a>
-            </li>
-          ))}
-        <li>
-          <a href="...">Existing Inventory</a>
-        </li>
-        <li>
-          <a href="...">Used Inventory</a>
-        </li>
-        <li>
-          <a href="...">Trade-in</a>
-        </li>
-        <li>
-          <a href="...">Cybertruck</a>
-        </li>
-        <li>
-          <a href="...">Roadster</a>
-        </li>
-      </BurgerNav>
-    </Container>
+            ))}
+        </Menu>
+        <RightMenu>
+          <a href="...">Shop</a>
+          <a href="...">Account</a>
+          <RMenuWrap>
+            <CustomMenu
+              hideOutline={false}
+              size={20}
+              toggled={burgerStatus}
+              toggle={setBurgerStatus}
+              onToggle={(toggled) => (toggled ? allowScroll() : blockScroll())}
+            />
+          </RMenuWrap>
+        </RightMenu>
+
+        <BurgerNav burgerStatus={burgerStatus}>
+          {/* <CloseWrapper>
+            <CustomClose onClick={() => setBurgerStatus(false)} />
+          </CloseWrapper> */}
+
+          {burgerStatus &&
+            cars.map((car, index) => (
+              <li>
+                <a key={car.id} href={`#${index}`}>
+                  {car}
+                </a>
+              </li>
+            ))}
+        </BurgerNav>
+      </Container>
+    </div>
   );
 }
 export default Header;
@@ -73,6 +82,9 @@ const Container = styled.div`
   z-index: 1;
 `;
 
+const RMenuWrap = styled.div`
+  z-index: 102;
+`;
 const Menu = styled.div`
   display: flex;
   align-items: center;
@@ -84,41 +96,45 @@ const Menu = styled.div`
     padding: 0 10px;
     flex-wrap: nowrap;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
 
 const RightMenu = styled.div`
+  display: flex;
+  align-items: center;
   a {
     font-weight: 600;
     margin-right: 10px;
-    flex-wrap: nowrap;
     color: #181b21;
-    @media (max-width: 768px) {
+    @media (max-width: 1200px) {
       display: none;
     }
   }
 `;
 
-const CustomMenu = styled(MenuIcon)`
+const CustomMenu = styled(Hamburger)`
   cursor: pointer;
+  z-index: 10000;
 `;
 
 const BurgerNav = styled.div`
   position: fixed;
-  top: 0px;
+  top: 0;
   bottom: 0;
   right: 0;
   background-color: white;
   width: 300px;
-  z-index: 10;
+  z-index: 9;
   list-style: none;
   padding: 20px;
+  display: flex;
   flex-direction: column;
   text-align: start;
-  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
-  transition: transform 0.2s;
+  transform: translateX(${(props) => (props.burgerStatus ? 0 : 100)}%);
+  transition: transform 0.25s ease-in-out;
+
   li {
     padding: 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
