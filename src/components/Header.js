@@ -34,13 +34,14 @@ function Header(props) {
         <RightMenu>
           <a href="...">Shop</a>
           <a href="...">Account</a>
-          <RMenuWrap>
+          <RMenuWrap id="hamburger" aria-label="burger menu" role="button">
             <CustomMenu
-              hideOutline={false}
+              hideOutline={true}
               size={20}
               toggled={burgerStatus}
               toggle={setBurgerStatus}
               onToggle={(toggled) => (toggled ? allowScroll() : blockScroll())}
+              aria-labelledby="hamburger"
             />
           </RMenuWrap>
         </RightMenu>

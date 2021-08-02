@@ -13,13 +13,16 @@ function Section(props) {
       </Fade>
       <Buttons>
         <Fade bottom>
-          <ButtonGroup>
-            <LeftButton>{props.leftBtnText}</LeftButton>
-            {props.rightBtnText && (
+          {props.rightBtnText && (
+            <ButtonGroup>
+              <LeftButton>{props.leftBtnText}</LeftButton>
               <RightButton>{props.rightBtnText}</RightButton>
-            )}
-          </ButtonGroup>
-          {props.rightBtnText && <DownArrow src="images/down-arrow.svg" />}
+            </ButtonGroup>
+          )}
+
+          {props.rightBtnText && (
+            <DownArrow src="images/down-arrow.svg" alt="Down Arrow" />
+          )}
         </Fade>
       </Buttons>
     </Wrap>
@@ -91,7 +94,7 @@ const DownArrow = styled.img`
   overflow-x: hidden;
   overflow-y: hidden;
   animation: animateDown 1.5s infinite;
-  position: relative;
+
   @media (max-width: 450px) {
     height: 50px;
     margin-bottom: 102px;
